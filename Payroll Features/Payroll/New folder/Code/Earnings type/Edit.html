@@ -1,0 +1,72 @@
+<form action="" id="Add">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="purchasegrp">
+                <label class="purchaseinfo"><span class=" aster">*</span>Earning Types</label>
+                <input type="text" class="form-control purchaseselects" name="nname">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="purchasegrp">
+                <label class="purchaseinfo"> <span class=" aster">* </span>Remarks</label>
+                <input type="text" class="form-control purchaseselects" name="cname">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="purchasegrp" style="margin-top: 10px;">
+                <label class="purchaseinfo">Status</label>
+                <label class="switchslider"> <input type="checkbox" checked><span
+                    class="slider round"></span></label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 blkftr">
+            <div class="modal-footer taskfooter">
+                <button type="button" class="taskclose1" data-bs-dismiss="modal">
+                    CLOSE
+                </button>
+                <button type="submit" class="tasksave1">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $('#Add').formValidation({
+        framework: 'bootstrap',
+        fields: {
+
+
+            nname: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            },
+            cname: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            },
+
+            ename: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            }
+
+
+        }
+    })
+
+</script>

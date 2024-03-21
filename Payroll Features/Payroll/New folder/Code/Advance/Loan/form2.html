@@ -1,0 +1,201 @@
+<form action="" id="Add">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="purchasegrp">
+                <label class="purchaseinfo"><span class=" aster">*</span>Employee name</label>
+                <select class="form-control selectpicker" title="None selected">
+                    <option value="1">Flat</option>
+                    <option value="2">Percentage</option>
+                </select>        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo" >Payment date</label>
+            <input type="date" class="form-control purchaseselects" name="ename">
+
+        </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo"><span class=" aster">* </span>Payment Mode</label>
+            <input type="date" class="form-control purchaseselects" name="ename">
+    </div>
+</div>
+
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo" style="line-height: 2;">Type</label>
+            <select class="form-control selectpicker" title="None">
+                <option value="1">Taxable</option>
+                <option value="2">Non-Taxable</option>
+            </select>
+        </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">Made on</label>
+            <input type="date" class="form-control purchaseselects" name="ename">
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="purchasegrp">
+        <label class="purchaseinfo" >To pay</label>
+        <input type="text" class="form-control purchaseselects" name="nname" disabled >
+
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">Paid</label>
+            <input type="text" class="form-control purchaseselects" name="nname" >
+        </div>
+</div>
+
+<div class="col-md-6">
+    <div class="purchasegrp">
+        <label class="purchaseinfo" >Interest Amount</label>
+        <input type="text" class="form-control purchaseselects" name="nname" disabled >
+
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">Pending Amount</label>
+            <input type="text" class="form-control purchaseselects" name="nname" >
+        </div>
+</div>
+
+<div class="col-md-6">
+    <div class="purchasegrp">
+        <label class="purchaseinfo" >Status</label>
+        <input type="text" class="form-control purchaseselects" name="nname" disabled >
+
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+                <div id="drop-zone">
+                    <img src="" alt="">
+                    <p class="dropfile">Attach images</p>
+                    <label for="myfile" class="file-input-label">
+                        <input type="file" id="myfile">
+                    </label>
+               </div>
+                <div class="text-container">
+                    <div class="file-name"></div>
+                    <button class="delete-button btn-danger" id="deleteBtn">Delete</button>
+                </div>
+           
+        
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12 blkftr">
+        <div class="modal-footer taskfooter">
+            <button type="button" class="taskclose1" data-bs-dismiss="modal">
+                CLOSE
+            </button>
+            <button type="submit" class="tasksave1">SAVE</button>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    $('#Add').formValidation({
+        framework: 'bootstrap',
+        fields: {
+
+
+             nname: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            },
+            cname: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            },
+
+            ename: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            }
+
+
+        }
+    })
+
+</script>
+<script>
+    var dropdownToggles = document.querySelectorAll("#stbutton");
+
+    dropdownToggles.forEach(function (dropdownToggle) {
+        var dropdownMenu = dropdownToggle.nextElementSibling;
+
+        dropdownMenu.addEventListener("click", function (event) {
+            var selectedOption = event.target.textContent;
+
+            dropdownToggle.textContent = selectedOption;
+
+            dropdownToggle.classList.remove("pending", "approved","rejected");
+            if (selectedOption === "Pending") {
+                dropdownToggle.classList.add("notselected");
+            } else if (selectedOption === "Approved") {
+                dropdownToggle.classList.add("approved");
+            } else if (selectedOption === "Rejected") {
+                dropdownToggle.classList.add("rejected");
+            }  else {
+                dropdownToggle.classList.remove("pending", "approved","rejected"
+                );
+            }
+        });
+        dropdownToggle.addEventListener("click", function () {
+            var selectedOption = dropdownToggle.textContent.trim();
+            dropdownMenu.innerHTML = "";
+            if (selectedOption === "In Progress") {
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Pending</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Approved</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Rejected</a></li>';
+            } else if (selectedOption === "Pending") {
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">In Progress</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Rejected</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Approved</a></li>';
+            } else if (selectedOption === "Approved") {
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">In Progress</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Rejected</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Pending</a></li>';
+            } else if (selectedOption === "Rejected") {
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">In Progress</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Pending</a></li>';
+                dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Approved</a></li>';
+            } 
+        });
+    });
+</script>

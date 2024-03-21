@@ -1,0 +1,115 @@
+<form action="" id="Add">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="purchasegrp">
+                <label class="purchaseinfo"><span class=" aster">*</span> Account number</label>
+                <input type="text" class="form-control purchaseselects" name="nname">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo"> <span class=" aster">* </span>IFSC</label>
+            <input type="text" class="form-control purchaseselects" name="cname">
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo"><span class=" aster">* </span>Branch</label>
+            <input type="text" class="form-control purchaseselects" name="ename">
+    </div>
+</div>
+
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">Bank Name</label>
+            <input type="text" class="form-control purchaseselects">
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">Other Details</label>
+            <input type="text" class="form-control purchaseselects">
+    </div>
+</div>
+
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">HRA</label>
+            <input type="text" class="form-control purchaseselects">
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">Basic Pay</label>
+            <input type="text" class="form-control purchaseselects">
+    </div>
+</div>
+
+    <div class="col-md-6">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">PF Number</label>
+            <input type="text" class="form-control purchaseselects">
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="purchasegrp">
+            <label class="purchaseinfo">ESI Number</label>
+            <input type="text" class="form-control purchaseselects">
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 blkftr">
+        <div class="modal-footer taskfooter">
+            <button type="button" class="taskclose1" data-bs-dismiss="modal">
+                CLOSE
+            </button>
+            <button type="submit" class="tasksave1">SAVE</button>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    $('#Add').formValidation({
+        framework: 'bootstrap',
+        fields: {
+
+
+             nname: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            },
+            cname: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            },
+
+            ename: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required.'
+                    }
+                }
+            }
+
+
+        }
+    })
+
+</script>

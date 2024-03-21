@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>warehousep1</title>
+    <!--Bootstrap 5 CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/Bootstrap5/css/bootstrap.css">
+
+    <!--Bootstrap 5 JS--->
+    <script type="text/javascript" src="../../assets/Bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/de952d599f.js" crossorigin="anonymous"></script>
+
+    <!--datatables CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/buttons.dataTables.min.css">
+
+    <!--Datatables js-->
+    <script type="text/javascript" src="../../assets/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="./datatable/datatable.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.responsive.min.js"></script>
+
+    <!--Datatable dropdown----->
+    <script type="text/javascript" src="../../assets/js/datatables.pdfmake.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.vfs_fonts.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.jszip.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.print.min.js"></script>
+
+    <!--Dropdown select-->
+    <link rel="stylesheet" href="../../assets/Bootstrap5/css/bootstrap-select.min.css">
+    <script src="../../assets/Bootstrap5/js/bootstrap-select.min.js"></script>
+
+    <!--summernote_textarea-->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <!-- CSS -->
+    <!-- validation -->
+    <script src="https://Login.loyalwings.com/assets/js/formValidation.min.js"></script>
+    <script src="https://Login.loyalwings.com/assets/js/bootstrap_validation.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!--image-->
+    <link rel="icon" href="../../assets/img/user.png" type="image/png">
+
+    <script src="table.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jexcel/2.1.0/js/jquery.jcalendar.js"></script>
+    <link rel="stylesheet" href="code.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jexcel/2.1.0/css/jquery.jdropdown.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jexcel/2.1.0/css/jquery.jcalendar.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="/warehouse/assets/daterangepicker.css">
+    <link rel="stylesheet" href="/warehouse/assets/daterangepicker.min.js">
+    <link rel="stylesheet" href="code.css">
+    <!-- Select2 css -->
+    <link href="../../assets/vendor/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../../assets/css/app-saas.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!--daterange picker-->
+    <script src="../../assets/js/moment.js"></script>
+    <link rel="stylesheet" href="../../assets/css/daterangepicker.css">
+    <script src="../../assets/js/daterangepicker.min.js"></script>
+
+    <link rel="stylesheet" href="Styles.css">
+    <!--data images js-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    
+    <body>
+        <style>
+            /* body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            } */
+    
+            .calendar {
+                display: flex;
+                flex-direction: row;
+              
+            }
+    
+            .day {
+                width: 60px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #ccc;
+            }
+        </style>
+    
+    <style>
+        .vendor {
+            padding-bottom: 10px !important;
+        }
+     
+        .help-block {
+            margin-left: 10px;
+            color: red;
+        }
+    
+        .notes {
+            background-color: #fcf8e3;
+            width: 100%;
+            padding: 10px 15px;
+            border-color: #faebcc;
+    
+        }
+    
+        .linehr {
+            margin: 0px !important;
+        }
+        .linehr1{
+            margin-bottom: -10px;
+        }
+    
+        @media only screen and (max-width: 770px) {
+            .linehr {
+                margin: 4px !important;
+                padding: -2px;
+            }
+            .back{
+                width: fit-content;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+           
+        }
+        .ptop10{
+            margin-left: 7%;
+        }
+        .prg{
+            margin-top: 10%;
+        }
+        .enbprt{
+            margin-top: 50px;
+            margin-left: 10px;
+        }
+        .inpt{
+            margin-top: -31px;
+        }
+       
+       
+        .linehr1{
+            margin-bottom: 20px;
+        }
+        .mnbtn{
+            margin-left: 21%;
+        }
+        .pgr{
+            margin-top: 9.5%;
+        }
+        
+    </style>
+     <style>
+        /* body {
+            font-family: Arial, sans-serif;
+        } */
+
+        /* h2 {
+            text-align: center;
+        } */
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+    
+    </head>
+    
+    <body style="margin-bottom:100px;">
+    
+            <br>
+            <hr class="fileline linehr1">
+    
+            <div class="row vendcarmt" style="text-align: middle;">
+                <div class="col-md-12 ">
+                    <div class="desktop" style="font-size: 14px;">
+                        <div class="scroll-images custml toptea">
+                            <div class="child mb-0 ">
+                                <button class="tablinks  tb-links active" type="button"
+                                    onclick="openTab(event, 'general')">Settings</button>
+                            </div>
+                            <div class="child mb-0">
+                                <button class="tablinks tb-links" type="button"
+                                    onclick="openTab(event, 'table1')">ESI</button>
+                            </div>
+                            <div class="child mb-0">
+                                <button class="tablinks tb-links" type="button"
+                                    onclick="openTab(event, 'table2')">EPF</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false"
+                        style="height: 50px;">
+                        <div class="carousel-inner scroll-images">
+    
+                            <div class="carousel-item active" style="text-align: center;">
+                                <div class="">
+                                    <div class="child mb-0" style="height:auto;">
+                                        <button class="tablinks active tabresact" style="width:70%" type="button"
+                                            onclick="openTab(event, 'general')">Settings</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item" style="text-align: center;">
+                                <div class="">
+                                    <div class="child mb-0" style="height:auto;">
+                                        <button class="tablinks tabresact" style="width:70%" type="button"
+                                            onclick="openTab(event, 'table1')">ESI</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item" style="text-align: center;">
+                                <div class="">
+                                    <div class="child mb-0" style="height:auto;">
+                                        <button class="tablinks tabresact" style="width:70%" type="button"
+                                            onclick="openTab(event, 'table2')">EPF</button>
+                                    </div>
+                                </div>
+                            </div>
+                         
+    
+                            <button id="prevButton" class="carousel-control-prev" style="margin-top: 10px;"
+                                type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <i class="bi bi-chevron-left icon" style="color:black;font-weight: bold;"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+    
+                            <button id="nextButton" class="carousel-control-next" style="margin-top: 10px;"
+                                type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <i class="bi bi-chevron-right icon" style="color:black;font-weight:bold"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="fileline vendcarline linehr">
+    
+            <!--tab1-->
+            <div id="general" class="tabcontent  mtgb" style="display:block;  margin-left: 10px; margin-right: 10px;">
+                <form action="" id="form" class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="purchasegrp">
+                          <label for="tags" class="purchaseinfo astername">Organization PAN number</label>
+                          <input type="text" class="purchaseselects form-control " name="val">
+                        </div>
+                      </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="purchasegrp">
+                            <label for="tags" class="purchaseinfo astername">TAN number</label>
+                            <input type="text" class="purchaseselects form-control " name="val">
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="purchasegrp">
+                            <label for="tags" class="purchaseinfo astername">Tds circle/AO code</label>
+                            <input type="text" class="purchaseselects form-control " name="val">
+                        </div>
+                    </div> 
+                    <br>
+                <div class="row">
+                        <hr class="fileline">
+                            <b>Pay schedule</b>
+                        <hr class="fileline">
+                        <b>select your work week <span class="aster">*</span></b>
+                        <p>The days worked in a calendar week</p>
+                    </div>
+                    <div class="calendar">
+                        <!-- Days go here dynamically, you can use JavaScript for this -->
+                        <div class="day">SUN</div>
+                        <div class="day">MON</div>
+                        <!-- ... Repeat for other days ... -->
+                        <div class="day">TUE</div>
+                        <div class="day">WED</div>
+                        <div class="day">THU</div>
+                        <div class="day">FRI</div>
+                        <div class="day">SAT</div>
+                    </div>
+                
+                                          
+               
+                <div class="row">
+                    <label for="tags" class="purchaseinfo mb-1"> <b>Calculate monthly salary based on </b><span class="aster">*</span><i
+                        class="fa-solid fa-circle-info"
+                        style="margin-left: 0px !important; margin-top: 0px !important;" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-title="Need activate the Warehouse module "></i></label>
+                    <fieldset>
+                    <div class="some-class sumclass">
+                      <input type="radio" class="radio" name="x" value="y" id="y" />
+                      <label for="y">Actual day in a month</label><br>
+                     
+                    </div>
+                    </div>
+                    </fieldset>
+                </div>
+                <div class="row">
+                    <div class=" col-md-2 mt-2">
+                        <input type="radio" class="radio" name="x" value="z" id="z" checked=""  />
+                        <label for="z">Organisation working days -  </label> 
+                      
+                    </div>
+                    <div class="col-md-1">
+                        <div class="purchasegrp">
+                            <div class=" dropdown-with-icon dropdownalignment"
+                                style="border-radius:4px 0px 0px 4px;">
+                                <select class="selectpicker multiselect" data-name="namedata-live-search=" title="Select...">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="1">5</option>
+                                    <option value="2">6</option>
+                                    <option value="3">6</option>
+                                    <option value="4">7</option>
+                                    <option value="1">8</option>
+                                    <option value="2">9</option>
+                                    <option value="3">10</option>
+                                    <option value="4">11</option>
+                                    <option value="3">12</option>
+                                    <option value="4">13</option>
+                                    <option value="1">14</option>
+                                    <option value="2">15</option>
+                                    <option value="3">16</option>
+                                    <option value="4">17</option>
+                                    <option value="9">18</option>
+                                    <option value="9">19</option>
+                                    <option value="9">20</option>
+                                    <option value="9">21</option>
+                                    <option value="9">22</option>
+                                    <option value="9">23</option>
+                                </select>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 mt-2">
+                        <p>Days per month</p>
+                    </div>
+                            
+               
+                </form>
+
+               
+                <div class="row">
+                  <form action="" id="form1">
+                    <label for="tags" class="purchaseinfo mb-1"><b>Pay your employees on</b> <span class="aster">*</span></label>
+                    <fieldset>
+                    <div class="some-class sumclass">
+                      <input type="radio" class="radio" name="x" value="y" id="y"  />
+                      <label for="y">The last working day of every month</label><br>
+                    
+                    </div>
+                    </div>
+                    </fieldset>
+                </div>
+
+                
+            
+                <div class="row  ">
+                    <div class=" col-md-1 mt-2">
+                        <input type="radio" class="radio" name="x" value="z" id="z" checked="" />
+                        <label for="z"> day </label> 
+                      
+                    </div>
+                    
+                    <div class="col-md-1">
+                        <div class="purchasegrp">
+                            <div class=" dropdown-with-icon dropdownalignment"
+                                style="border-radius:4px 0px 0px 4px;">
+                                <select class="selectpicker multiselect" data-name="namedata-live-search=" title="Select...">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="1">5</option>
+                                    <option value="2">6</option>
+                                    <option value="3">6</option>
+                                    <option value="4">7</option>
+                                    <option value="1">8</option>
+                                    <option value="2">9</option>
+                                    <option value="3">10</option>
+                                    <option value="4">11</option>
+                                    <option value="3">12</option>
+                                    <option value="4">13</option>
+                                    <option value="1">14</option>
+                                    <option value="2">15</option>
+                                    <option value="3">16</option>
+                                    <option value="4">17</option>
+                                    <option value="9">18</option>
+                                    <option value="9">19</option>
+                                    <option value="9">20</option>
+                                    <option value="9">21</option>
+                                    <option value="9">22</option>
+                                    <option value="9">23</option>
+                                </select>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 mt-2">
+                        <p>Of every  month</p>
+                    </div>
+                            
+                  
+                    <div class="mgleft">
+                        <b>Note:</b>When payday falls on a non-working day or a holiday , employees will get paid on the previous working day.
+                    </div>  
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="purchasegrp">
+                                <label class="purchaseinfo"> Start your first payroll from<span class=" aster">* </span></label>
+                                <input type="text" id="startDate"  class="form-control purchaseselects" name="startDate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="purchasegrp">
+                                <label class="purchaseinfo">Salary for the month of june-2023 will be paid on<span class=" aster">* </span></label>
+                                <input type="text" id="endDate"  class="form-control purchaseselects" name="endDate">
+                        </div>
+                    </div>
+                  </div>
+              </form>
+          </div>
+        </div>      
+                  
+      </div>
+    </div>
+          
+    
+            
+        
+            <!--tab2-->
+            <div id="table1" class="tabcontent  mtgb">
+                <form action="" id="thirdform">
+      
+      
+                    <div id="newparent" class="banking-parent row">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="purchasegrp">
+                            <div class="purchaseinfo prg">
+                                <select name="" id="" class="selectpicker multiselect" data-name="name" multiple
+                                    data-actions-box="true" data-live-search="true">
+                                    <option value="1">Employees</option>
+                                    <option value="2">Branches</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="purchasegrp">
+                            <label class="purchaseinfo mb-1">Contribution rate(%)
+                            </label>
+                            <select class="selectpicker form-control" name="currency" data-live-search="true" name="third">
+                                <option value="36">Basic</option>
+                                <option value="38">HRA</option>
+                                <option value="36">ESI</option>
+                                <option value="38">Pf</option>
+        
+                              </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="purchasegrp">
+                              <label class="purchaseinfo mb-1">Contribution rate
+                              </label>
+                              <select class="selectpicker form-control" name="currency" data-live-search="true" name="third">
+                                  <option value="36">Basic</option>
+                                  <option value="38">HRA</option>
+                                  <option value="36">ESI</option>
+                                  <option value="38">Pf</option>
+          
+                                </select>
+                            </div>
+                          </div>
+                        <div class="col-md-2">
+                          <div class="purchasegrp">
+                            <label class="purchaseinfo " name="third">
+                            </label>
+                            <input type="text" class="purchaseselects form-control" name="third">
+      
+                            </select>
+                          </div>
+                        </div>
+      
+                        <div class="col-md-1 padtop25 mgtop">
+                          <div class="purchasegrp">
+                            <button id="add_btn" name="add" class="ctctgrnbtn banking-plus-btn" data-ticket="true"
+                              type="button"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row enbprt">
+                        <div class="col-md-2 enable " >
+                            <div class="purchasegrp">
+                                <div class="purchaseinfo">
+                                <input  type="checkbox" id="enable" name="enable" checked="" value="1">
+                                <label for="enable">ESI only if salary </label>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-1">
+                       <div class="purchasegrp">
+                         <div class="purchaseinfo">
+                            <button type="button" id="stbutton"
+                            class=" status-button  dropdown-toggle dd-toggle"
+                            data-bs-toggle="dropdown">In Progress</button>
+                            <ul class="dropdown-menu dropshow">
+                                <li><a class="dropdown-item" href="#">Pending</a></li>
+                                <li><a class="dropdown-item" href="#">Approved</a></li>
+                                <li><a class="dropdown-item" href="#">Rejected</a></li>
+                            </ul>
+                         </div>
+                       </div>
+                    </div>
+                   
+                    <div class="col-md-2 inpt">
+                        <div class="purchasegrp">
+                          <label class="purchaseinfo " name="third">
+                          </label>
+                          <input type="text" class="purchaseselects form-control" name="third">
+                        </div>
+                    </div>
+                </form>
+               </div> 
+               <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>ESI Contribution (%)</th>
+                        <th>ESI Contribution </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>January</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>March</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+            </div>
+            
+            
+           
+    
+            
+</div>
+            <!--tab3-->
+            <div id="table2" class="tabcontent mtgb">
+                <form action="" id="thirdform">      
+                <div id="newparents" class="banking-parent row">
+                  <div class="row">
+                    <div class="col-md-3">
+                        <div class="purchasegrp">
+                          <label class="purchaseinfo " name="third">Company EPF Number
+                          </label>
+                          <input type="text" class="purchaseselects form-control" name="third">
+    
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="purchasegrp">
+                          <label class="purchaseinfo " name="third">Employee Contribution
+                          </label>
+                          <input type="text" class="purchaseselects form-control" name="third">
+    
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="purchasegrp">
+                          <label class="purchaseinfo " name="third">Employer Contribution
+                          </label>
+                          <input type="text" class="purchaseselects form-control" name="third">
+    
+                          </select>
+                        </div>
+                      </div>
+                    <div class="col-md-2">
+                      <div class="purchasegrp">
+                        <label class="purchaseinfo " name="third">
+                        </label>
+                        <input type="text" class="purchaseselects form-control" name="third">
+  
+                        </select>
+                      </div>
+                    </div>
+  
+                    <div class="col-md-1 padtop25 mgtop">
+                      <div class="purchasegrp">
+                        <button id="addd_btn" name="add" class="ctctgrnbtn banking-plus-btn" data-ticket="true"
+                          type="button"><i class="fa fa-plus"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row enbprt">
+                    <div class="col-md-2 enable " >
+                        <div class="purchasegrp">
+                            <div class="purchaseinfo">
+                            <input  type="checkbox" id="enable" name="enable" checked="" value="1">
+                            <label for="enable">Enable EPF </label>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col-md-1">
+                   <div class="purchasegrp">
+                     <div class="purchaseinfo">
+                        <button type="button" id="stbutton"
+                        class=" status-button  dropdown-toggle dd-toggle"
+                        data-bs-toggle="dropdown">In Progress</button>
+                        <ul class="dropdown-menu dropshow">
+                            <li><a class="dropdown-item" href="#">Pending</a></li>
+                            <li><a class="dropdown-item" href="#">Approved</a></li>
+                            <li><a class="dropdown-item" href="#">Rejected</a></li>
+                        </ul>
+                     </div>
+                   </div>
+                </div>
+               
+                <div class="col-md-2 inpt">
+                    <div class="purchasegrp">
+                      <label class="purchaseinfo " name="third">
+                      </label>
+                      <input type="text" class="purchaseselects form-control" name="third">
+                    </div>
+                </div>
+            
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Employee Contribution (%)</th>
+                    <th>Employer Contribution (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>January</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>February</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>March</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    
+        </div>
+    </form>
+    <!-- script-->
+
+    <script>
+        $(function() {
+          $("#startDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            onSelect: function(selectedDate) {
+              $("#endDate").datepicker("option", "minDate", selectedDate);
+            }
+          });
+          $("#endDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            onSelect: function(selectedDate) {
+              $("#startDate").datepicker("option", "maxDate", selectedDate);
+            }
+          });
+        });
+      </script>
+
+    <script>
+        var dropdownToggles = document.querySelectorAll("#stbutton");
+
+        dropdownToggles.forEach(function (dropdownToggle) {
+            var dropdownMenu = dropdownToggle.nextElementSibling;
+
+            dropdownMenu.addEventListener("click", function (event) {
+                var selectedOption = event.target.textContent;
+
+                dropdownToggle.textContent = selectedOption;
+
+                dropdownToggle.classList.remove("pending", "approved","rejected");
+                if (selectedOption === "Pending") {
+                    dropdownToggle.classList.add("notselected");
+                } else if (selectedOption === "Approved") {
+                    dropdownToggle.classList.add("approved");
+                } else if (selectedOption === "Rejected") {
+                    dropdownToggle.classList.add("rejected");
+                }  else {
+                    dropdownToggle.classList.remove("pending", "approved","rejected"
+                    );
+                }
+            });
+            dropdownToggle.addEventListener("click", function () {
+                var selectedOption = dropdownToggle.textContent.trim();
+                dropdownMenu.innerHTML = "";
+                if (selectedOption === "In Progress") {
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Pending</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Approved</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Rejected</a></li>';
+                } else if (selectedOption === "Pending") {
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">In Progress</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Rejected</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Approved</a></li>';
+                } else if (selectedOption === "Approved") {
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">In Progress</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Rejected</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Pending</a></li>';
+                } else if (selectedOption === "Rejected") {
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">In Progress</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Pending</a></li>';
+                    dropdownMenu.innerHTML += '<li><a class="dropdown-item" href="#">Approved</a></li>';
+                } 
+            });
+        });
+    </script>
+
+    <script>$(document).ready(function () {
+        $("#add_btn").click(function () {
+          $("#newparent").append('   <div id="newparent1" class="row"><div class="col-md-3"> <div class="purchasegrp"><div class="purchaseinfo pgr"> <select name="" id="" class="selectpicker multiselect" data-name="name" multiple data-actions-box="true" data-live-search="true"><option value="1">Employees</option><option value="2">Branches</option></select></div></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo mb-1">Contribution rate(%)</label><select class="selectpicker form-control" name="currency" data-live-search="true" name="third"><option value="36">Basic</option><option value="38">HRA</option><option value="36">ESI</option><option value="38">Pf</option></select></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo mb-1">Contribution rate</label><select class="selectpicker form-control" name="currency" data-live-search="true" name="third"><option value="36">Basic</option><option value="38">HRA</option><option value="36">ESI</option><option value="38">Pf</option> </select></div></div><div class="col-md-2"><div class="purchasegrp"> <label class="purchaseinfo " name="third"></label><input type="text" class="purchaseselects form-control" name="third"></select> </div></div><div class="col-md-1 padtop25 "><div class="purchasegrp"><button id="r1" name="add" class="minusbtns setmartp" data-ticket="true type="button"><i class="fa fa-minus"></i></button></div></div></div>');
+          $('.selectpicker').selectpicker('reresh')
+        });
+        $(document).on('click', '#r1', function () {
+          $(this).closest('#newparent1').remove();
+        });
+      });
+    </script>
+          <script>
+            $('#form').formValidation({
+              framework: 'bootstrap',
+              fields: {
+                val: {
+                  validators: {
+                    notEmpty: {
+                      message: 'This field is required'
+                    }
+                  }
+                },
+    
+    
+              }
+            })
+    
+          </script>
+
+<script>$(document).ready(function () {
+    $("#addd_btn").click(function () {
+      $("#newparents").append(' <div id="newparent1" class="row"><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo " name="third">Company EPF Number</label><input type="text" class="purchaseselects form-control" name="third"></select></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo " name="third">Employee Contribution</label><input type="text" class="purchaseselects form-control" name="third"></select></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo " name="third">Employer Contribution</label><input type="text" class="purchaseselects form-control" name="third"></select></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo " name="third"></label><input type="text" class="purchaseselects form-control" name="third"></select></div></div> <div class="col-md-1 padtop25 "><div class="purchasegrp"><button id="r1" name="add" class="minusbtns setmartp " data-ticket="true type="button"><i class="fa fa-minus"></i></button></div></div></div>');
+      $('.selectpicker').selectpicker('reresh')
+    });
+    $(document).on('click', '#r1', function () {
+      $(this).closest('#newparent1').remove();
+    });
+  });
+</script>
+      <script>
+        $('#form').formValidation({
+          framework: 'bootstrap',
+          fields: {
+            val: {
+              validators: {
+                notEmpty: {
+                  message: 'This field is required'
+                }
+              }
+            },
+
+
+          }
+        })
+
+      </script>
+  
+        <script>
+            $('#addlead2').formValidation({
+                framework: 'bootstrap',
+                fields: {
+        
+        
+                    PayAcc: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This feild is required.'
+                            }
+                        }
+                    },
+        
+        
+                }
+            })
+        
+        </script>
+        <script>
+            function openTab(evt, tabName) {
+                // Declare all variables
+                var i, tabcontent, tablinks;
+        
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+        
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+        
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            var carousel = document.getElementById("carouselExampleIndicators");
+        
+            carousel.addEventListener("slid.bs.carousel", function (event) {
+                var activeSlideIndex = event.to;
+                if (activeSlideIndex === 0) {
+        
+                    openTab(event, 'general');
+        
+                }
+                else if (activeSlideIndex === 1) {
+        
+                    openTab(event, 'billing');
+        
+                }
+                else if (activeSlideIndex === 2) {
+        
+                    openTab(event, 'custom');
+        
+                }
+            });
+    
+    
+    
+</script>
+   
+</body>
+</html>            
